@@ -23,3 +23,20 @@ If I had more time, I'd move the logic from the parents components to the render
 delete() {
   this.params.delete(this.data?.id);
 }
+```
+
+// add entry #2 for the following issue: z index of the cdk-overlay-component
+## Entry 2: Issue with z-index of the cdk-overlay-component
+
+**Problem:**
+The z-index of the cdk-overlay-component was over 1000000 causing third-party components to be hidden behind it.
+
+**Solution:**
+The solution was to override the z-index of the cdk-overlay-container using ng-deep in the component.css file
+
+**Code Snippet:**
+```css
+::ng-deep .cdk-overlay-container {
+  z-index: 1000 !important;
+}
+```
